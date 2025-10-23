@@ -1,0 +1,48 @@
+/* Animaciones para las cards */
+.animated-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animated-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.animated-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.animated-card:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.animated-card:nth-child(5) {
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Efectos de entrada */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

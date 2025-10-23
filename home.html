@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temas Principales - Proyecto Final</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Diversidad e Inclusión</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Principal</a></li>
+                <li><a href="#multiculturalidad">Multiculturalidad</a></li>
+                <li><a href="#genero">Género</a></li>
+                <li><a href="#equidad">Equidad</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="cards-container">
+        <h2 class="section-title">Temas de Investigación</h2>
+        
+        <div class="cards-grid">
+            <div class="card animated-card" onclick="openTopic('justicia-indigena')">
+                <div class="card-icon">🏛️</div>
+                <h3>Justicia de Autoridades Indígenas</h3>
+                <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural</p>
+            </div>
+            
+            <div class="card animated-card" onclick="openTopic('feminismo-interseccional')">
+                <div class="card-icon">⚖️</div>
+                <h3>Feminismo Interseccional</h3>
+                <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica</p>
+            </div>
+            
+            <div class="card animated-card" onclick="openTopic('vulnerabilidades-lgbt')">
+                <div class="card-icon">🏳️‍🌈</div>
+                <h3>Vulnerabilidades LGBT</h3>
+                <p>Examen de las situaciones de riesgo que enfrenta la comunidad LGBT actualmente</p>
+            </div>
+            
+            <div class="card animated-card" onclick="openTopic('sociedad-cultura')">
+                <div class="card-icon">🌍</div>
+                <h3>Sociedad y Cultura</h3>
+                <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos</p>
+            </div>
+            
+            <div class="card animated-card" onclick="openTopic('acuerdos-paz')">
+                <div class="card-icon">🕊️</div>
+                <h3>Acuerdos de Paz</h3>
+                <p>Estudio de los procesos de paz y su implementación en diferentes contextos</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Proyecto Final - Equipo de trabajo</p>
+    </footer>
+    
+    <script src="js/cards-animation.js"></script>
+    <script>
+        function openTopic(topic) {
+            window.open(`pages/${topic}.html`, '_blank');
+        }
+    </script>
+</body>
+</html>
