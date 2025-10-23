@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(to bottom, #745a5a, #e6f7ff);
+    background: linear-gradient(to bottom, #808c97, #e6f7ff);
 }
 
 /* Navegación */
@@ -60,17 +60,18 @@ body {
 
 .cta-button {
     padding: 0.8rem 2rem;
-    background-color: #e74c3c;
+    background-color: #706a92;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s;
+    align-self: center;
 }
 
 .cta-button:hover {
-    background-color: #c0392b;
+    background-color: #8e78a0;
 }
 
 /* Contenedor de cards */
@@ -123,7 +124,7 @@ body {
 
 /* Animaciones */
 .hero-section { 
-    background: url('../images/hero-bg.jpg') no-repeat center/cover; 
+    background: url('../img/hero-mayas.jpg') no-repeat center/cover; 
     color: white; 
     text-align: center; 
     padding: 100px 20px; 
