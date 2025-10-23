@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f9f9f9;
+    background: linear-gradient(to bottom, #745a5a, #e6f7ff);
 }
 
 /* Navegación */
@@ -121,6 +121,77 @@ body {
     color: #7f8c8d;
 }
 
+/* Animaciones */
+.hero-section { 
+    background: url('../images/hero-bg.jpg') no-repeat center/cover; 
+    color: white; 
+    text-align: center; 
+    padding: 100px 20px; 
+    animation: fadeIn 2s; 
+}
+
+.info-section { 
+    padding: 50px 20px; 
+    background: white; 
+    margin: 20px 5px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    text-align: center;
+}
+
+.contact-section { 
+    padding: 50px 20px; 
+    background: white; 
+    margin: 20px 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    text-align: center;
+}
+
+.resources-section { 
+    padding: 50px 20px; 
+    background: white; 
+    margin: 20px 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    text-align: left;
+}
+
+.section-image, .chart { 
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.testimonial { 
+    display: inline-block; 
+    margin: 10px; 
+    text-align: center; 
+}
+
+.blog-posts { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+}
+
+.post { 
+    flex: 1 1 300px; 
+    background: #f9f9f9; 
+    padding: 20px; 
+    border-radius: 10px; 
+    text-align: center;
+}
+
+@keyframes fadeIn { 
+    from { 
+        opacity: 0; 
+    } 
+    to { 
+        opacity: 1;
+    } 
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -132,6 +203,14 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    
+    .hero-section { 
+        padding: 50px 10px; 
+    } 
+    .blog-posts { 
+        flex-direction: column; 
+    }
+
     .main-nav {
         flex-direction: column;
         padding: 1rem;

@@ -29,34 +29,34 @@
         <h2 class="section-title">Temas de Investigación</h2>
         
         <div class="cards-grid">
-            <div class="card animated-card" onclick="openTopic('justicia-indigena')">
+            <div class="card animated-card" onclick="openTopic('justucia-indigena')">
                 <div class="card-icon">🏛️</div>
                 <h3>Justicia de Autoridades Indígenas</h3>
-                <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural</p>
+                <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural.</p>
             </div>
             
             <div class="card animated-card" onclick="openTopic('feminismo-interseccional')">
                 <div class="card-icon">⚖️</div>
                 <h3>Feminismo Interseccional</h3>
-                <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica</p>
+                <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica.</p>
             </div>
             
-            <div class="card animated-card" onclick="openTopic('vulnerabilidades-lgbt')">
+            <div class="card animated-card" onclick="openTopic('vulnerabilidad-lgbt')">
                 <div class="card-icon">🏳️‍🌈</div>
                 <h3>Vulnerabilidades LGBT</h3>
-                <p>Examen de las situaciones de riesgo que enfrenta la comunidad LGBT actualmente</p>
+                <p>Examen de las situaciones de riesgo que enfrenta la comunidad LGBT actualmente.</p>
             </div>
             
             <div class="card animated-card" onclick="openTopic('sociedad-cultura')">
                 <div class="card-icon">🌍</div>
                 <h3>Sociedad y Cultura</h3>
-                <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos</p>
+                <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos.</p>
             </div>
             
-            <div class="card animated-card" onclick="openTopic('acuerdos-paz')">
+            <div class="card animated-card" onclick="openTopic('acuerdo-paz')">
                 <div class="card-icon">🕊️</div>
                 <h3>Acuerdos de Paz</h3>
-                <p>Estudio de los procesos de paz y su implementación en diferentes contextos</p>
+                <p>Estudio de los procesos de paz y su implementación en diferentes contextos.</p>
             </div>
         </div>
     </main>
@@ -65,11 +65,11 @@
         <p>&copy; 2025 Proyecto Final - Equipo de trabajo</p>
     </footer>
     
-    <script src="js/cards-animation.js"></script>
-    <script>
-        function openTopic(topic) {
-            window.open(`pages/${topic}.html`, '_blank');
-        }
-    </script>
 </body>
+<script src="js/cards-animation.js"></script>
+<script>
+    function openTopic(topic) {
+        window.location.href = `pages/${topic}.html`;
+    }
+</script>
 </html>
