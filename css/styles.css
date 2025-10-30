@@ -131,6 +131,14 @@ body {
     animation: fadeIn 2s; 
 }
 
+.hero-sectionL { 
+    background: url('../img/repLG.jpg') no-repeat center/cover; 
+    color: white; 
+    text-align: center; 
+    padding: 100px 20px; 
+    animation: fadeIn 2s; 
+}
+
 .info-section { 
     padding: 50px 20px; 
     background: white; 
