@@ -131,6 +131,15 @@ body {
     animation: fadeIn 2s; 
 }
 
+.hero-sectionS { 
+    background: url('../img/CULTURA.jpg') no-repeat center/cover; 
+    color: rgb(6, 6, 6); 
+    text-align: center; 
+    padding: 100px 20px; 
+    animation: fadeIn 2s; 
+}
+
+
 .info-section { 
     padding: 50px 20px; 
     background: white; 
