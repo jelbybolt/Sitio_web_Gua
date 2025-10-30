@@ -131,14 +131,24 @@ body {
     animation: fadeIn 2s; 
 }
 
+<<<<<<< HEAD
 .hero-sectionL { 
     background: url('../img/repLG.jpg') no-repeat center/cover; 
     color: white; 
+=======
+.hero-sectionS { 
+    background: url('../img/CULTURA.jpg') no-repeat center/cover; 
+    color: rgb(6, 6, 6); 
+>>>>>>> 968f5daf6ce2d40dc502c6230940131ce0b4debe
     text-align: center; 
     padding: 100px 20px; 
     animation: fadeIn 2s; 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 968f5daf6ce2d40dc502c6230940131ce0b4debe
 .info-section { 
     padding: 50px 20px; 
     background: white; 
