@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justicia de Autoridades Mayas en Guatemala</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -92,18 +95,23 @@
         </section>
 
         <!-- Sección Contacto: Formulario para consultas -->
-        <section id="contacto" class="contact-section">
-            <div class="container">
-                <h2>Contacto: ¡Conversemos sobre Justicia Maya!</h2>
-                <p>¿Tienes preguntas sobre las autoridades mayas en Guatemala? Envíanos un mensaje. ¡Estamos aquí para jóvenes, adultos y niños!</p>
-                <form id="contact-form">
-                    <input type="text" placeholder="Tu nombre" required>
-                    <input type="email" placeholder="Tu email" required>
-                    <textarea placeholder="Tu mensaje (ej. sobre justicia maya)" required></textarea>
-                    <button type="submit" class="cta-button">Enviar</button>
-                </form>
-            </div>
-        </section>
+    <section id="contacto" class="contact-section">
+    <div class="container">
+        <h2>Contacto: ¡Conversemos!</h2>
+        <p>¿Tienes preguntas? Envíanos un mensaje. ¡Estamos aquí para ayudarte!</p>
+        
+        <!-- Mensaje de confirmación (oculto inicialmente) -->
+        <div id="form-message" class="form-message" style="display: none;"></div>
+        
+<form id="contact-form">
+        <input type="text" name="user_name" placeholder="Tu nombre" required>
+        <input type="email" name="user_email" placeholder="Tu email" required>
+        <input type="text" name="subject" placeholder="Asunto" required>
+        <textarea name="message" placeholder="Tu mensaje" required></textarea>
+        <button type="submit" class="cta-button">Enviar Mensaje</button>
+</form>
+    </div>
+</section>
     </main>
     
     <footer>

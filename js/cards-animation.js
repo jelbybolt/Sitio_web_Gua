@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añadir efecto de hover mejorado
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05) rotate(1deg)';
+            this.style.transform = 'translateY(-15px) scale(1.02)';
+            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.2)';
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1) rotate(0deg)';
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
         });
     });
     

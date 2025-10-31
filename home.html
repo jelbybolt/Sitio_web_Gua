@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temas Principales - Proyecto Final</title>
+    <title>El Otro Lado del Mapa - Temas</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/animations.css">
 </head>
@@ -11,17 +11,18 @@
     <header>
         <nav class="main-nav">
             <div class="logo">
-                <h1>Diversidad e Inclusión</h1>
+                <h1>El otro lado del Mapa</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Principal</a></li>
-                <li><a href="#multiculturalidad">Multiculturalidad</a></li>
-                <li><a href="#genero">Género</a></li>
-                <li><a href="#equidad">Equidad</a></li>
-                <li><a href="#blog">Blog</a></li>
                 <li><a href="#recursos">Recursos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
     
@@ -30,33 +31,53 @@
         
         <div class="cards-grid">
             <div class="card animated-card" onclick="openTopic('justucia-indigena')">
-                <div class="card-icon">🏛️</div>
-                <h3>Justicia de Autoridades Indígenas</h3>
-                <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural.</p>
+                <div class="card-image">
+                    <img src="../img/autoridadesM.jpg" alt="Justicia Indígena">
+                </div>
+                <div class="card-content">
+                    <h3>Justicia de Autoridades Indígenas</h3>
+                    <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural.</p>
+                </div>
             </div>
             
             <div class="card animated-card" onclick="openTopic('feminismo-interseccional')">
-                <div class="card-icon">⚖️</div>
-                <h3>Feminismo Interseccional</h3>
-                <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica.</p>
+                <div class="card-image">
+                    <img src="img/feminismoI.jpg" alt="Feminismo Interseccional">
+                </div>
+                <div class="card-content">
+                    <h3>Feminismo Interseccional</h3>
+                    <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica.</p>
+                </div>
             </div>
             
             <div class="card animated-card" onclick="openTopic('vulnerabilidad-lgbt')">
-                <div class="card-icon">🏳️‍🌈</div>
-                <h3>Colectivo LGBT: Una mirada Social</h3>
-                <p>Conoce de las situaciones sociales que enfrenta la comunidad LGBT actualmente.</p>
+                <div class="card-image">
+                    <img src="img/comunidadLGjpg.jpg" alt="Colectivo LGBT">
+                </div>
+                <div class="card-content">
+                    <h3>Colectivo LGBT: Una mirada Social</h3>
+                    <p>Conoce de las situaciones sociales que enfrenta la comunidad LGBT actualmente.</p>
+                </div>
             </div>
             
             <div class="card animated-card" onclick="openTopic('sociedad-cultura')">
-                <div class="card-icon">🌍</div>
-                <h3>Sociedad y Cultura</h3>
-                <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos.</p>
+                <div class="card-image">
+                    <img src="img/sociedad-cultura.jpg" alt="Sociedad y Cultura">
+                </div>
+                <div class="card-content">
+                    <h3>Sociedad y Cultura</h3>
+                    <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos.</p>
+                </div>
             </div>
             
             <div class="card animated-card" onclick="openTopic('acuerdo-paz')">
-                <div class="card-icon">🕊️</div>
-                <h3>Acuerdos de Paz</h3>
-                <p>Estudio de los procesos de paz y su implementación en diferentes contextos.</p>
+                <div class="card-image">
+                    <img src="img/acuerdo-paz.jpg" alt="Acuerdos de Paz">
+                </div>
+                <div class="card-content">
+                    <h3>Acuerdos de Paz</h3>
+                    <p>Estudio de los procesos de paz y su implementación en diferentes contextos.</p>
+                </div>
             </div>
         </div>
     </main>
@@ -65,11 +86,11 @@
         <p>&copy; 2025 El otro lado del mapa - Equipo de trabajo</p>
     </footer>
     
+    <script src="js/cards-animation.js"></script>
+    <script>
+        function openTopic(topic) {
+            window.location.href = `pages/${topic}.html`;
+        }
+    </script>
 </body>
-<script src="js/cards-animation.js"></script>
-<script>
-    function openTopic(topic) {
-        window.location.href = `pages/${topic}.html`;
-    }
-</script>
 </html>

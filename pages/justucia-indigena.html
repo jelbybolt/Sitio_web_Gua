@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justicia de Autoridades Mayas en Guatemala</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -13,93 +16,118 @@
                 <h1>Justicia de Autoridades Mayas en Guatemala</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#multiculturalidad">Multiculturalidad</a></li>
-                <li><a href="#genero">Género</a></li>
-                <li><a href="#equidad">Equidad</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="../home.html">Inicio</a></li>
                 <li><a href="#recursos">Recursos</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
     
     <main>
-        <!-- Sección de Inicio: Introducción narrativa -->
-        <section id="inicio" class="hero-section">
-            <div class="hero-content">
-                <h2>La Justicia Ancestral de las Autoridades Mayas en Guatemala</h2>
-                <p>En las tierras de Guatemala, las comunidades mayas han preservado durante siglos un sistema de justicia basado en la armonía, el respeto y la equidad. Esta página te invita a explorar cómo las autoridades mayas resuelven conflictos, celebran la diversidad y promueven la igualdad, inspirando a jóvenes, adultos y niños por igual.</p>
+        <section class="blog-hero">
+            <div class="blog-hero-image">
+                <img src="../img/hero-mayas.jpg" alt="Comunidad maya en Guatemala">
+            </div>
+            <div class="blog-hero-content">
+                <h1>La Justicia Ancestral de las Autoridades Mayas en Guatemala</h1>
             </div>
         </section>
 
-        <!-- Sección Multiculturalidad: Información continua -->
-        <section id="multiculturalidad" class="info-section">
+        <section class="blog-content">
             <div class="container">
+                <p>En las tierras de Guatemala, las comunidades mayas han preservado durante siglos un sistema de justicia basado en la armonía, el respeto y la equidad. Esta página te invita a explorar cómo las autoridades mayas resuelven conflictos, celebran la diversidad y promueven la igualdad, inspirando a jóvenes, adultos y niños por igual.</p>
+                
                 <h2>La Riqueza de los Pueblos Mayas</h2>
                 <p>Guatemala es hogar de 22 pueblos mayas, cada uno con lenguas, tradiciones y formas de vida únicas. Esta diversidad no solo enriquece la cultura nacional, sino que fortalece el sistema de justicia ancestral, donde el diálogo y el consenso son clave para mantener la paz comunitaria.</p>
                 <img src="../images/multiculturalidad-mayas.jpg" alt="Diversidad cultural maya" class="section-image">
                 <p>Por ejemplo, en las comunidades mayas, las decisiones se toman en asambleas donde todos los miembros, independientemente de su origen, tienen voz. Esto fomenta una sociedad inclusiva y respetuosa.</p>
-            </div>
-        </section>
 
-        <!-- Sección Género: Flujo informativo -->
-        <section id="genero" class="info-section">
-            <div class="container">
                 <h2>Igualdad en las Tradiciones Mayas</h2>
                 <p>En las comunidades mayas, la equidad de género es un pilar fundamental. Las mujeres y hombres comparten responsabilidades en la justicia, desde la resolución de disputas hasta el cuidado de la tierra. Historias de liderazgo femenino muestran cómo las autoridades mayas han integrado roles equilibrados desde tiempos ancestrales.</p>
-                <div class="testimonials">
+                
+                <div class="testimonials-container">
                     <div class="testimonial">
                         <img src="../images/testimonio-mujer-maya.jpg" alt="Testimonio mujer maya">
-                        <p>"Como autoridad, promuevo la equidad para que todos participen." - Ana, líder maya.</p>
+                        <blockquote>"Como autoridad, promuevo la equidad para que todos participen."</blockquote>
+                        <cite>Ana, líder maya</cite>
                     </div>
                     <div class="testimonial">
                         <img src="../images/testimonio-joven-maya.jpg" alt="Testimonio joven maya">
-                        <p>"¡La justicia maya es para todos, sin importar la edad!" - Pedro, joven activista.</p>
+                        <blockquote>"¡La justicia maya es para todos, sin importar la edad!"</blockquote>
+                        <cite>Pedro, joven activista</cite>
                     </div>
                 </div>
+                
                 <p>Esta igualdad no solo beneficia a las comunidades, sino que sirve de modelo para una sociedad más justa en Guatemala y más allá.</p>
-            </div>
-        </section>
 
-        <!-- Sección Equidad: Continuación lógica -->
-        <section id="equidad" class="info-section">
-            <div class="container">
                 <h2>Justicia para Todos en Guatemala</h2>
                 <p>La justicia de las autoridades mayas se basa en principios de equidad, donde los conflictos se resuelven de manera pacífica y comunitaria, priorizando el bienestar colectivo sobre el individual. En Guatemala, este enfoque ha ayudado a reducir tensiones locales y promover la reconciliación.</p>
                 <div class="data-visual">
-                    <img src="../images/grafico-equidad-mayas.png" alt="Gráfico de equidad en comunidades mayas" class="chart">
+                    <img src="../images/grafico-equidad-mayas.png" alt="Gráfico de equidad en comunidades mayas" class="section-image">
                     <p>Estadísticas muestran que en comunidades mayas, la justicia ancestral ha reducido conflictos en un 40%, fomentando un entorno de paz y respeto mutuo.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Recursos: Materiales sobre mayas en Guatemala -->
-        <section id="recursos" class="resources-section">
+<section id="recursos" class="resources-section">
             <div class="container">
-                <h2>Recursos: Aprende sobre las Autoridades Mayas</h2>
+                <h2>Recursos Académicos sobre la Comunidad LGBTQ+ en Guatemala</h2>
+                <p class="intro-text">Esta sección presenta las fuentes académicas y documentales que sustentan la investigación sobre la comunidad LGBTQ+ en Guatemala, con especial énfasis en derechos humanos, salud, violencia y aspectos interseccionales.</p>
+                
+                <h3 class="category-title">Estudios sobre Violencia y Crímenes de Odio</h3>
                 <ul class="resource-list">
-                    <li><a href="../docs/guia-justicia-maya.pdf" download>Guía de Justicia Maya (PDF)</a></li>
-                    <li><a href="../videos/tutorial-equidad-maya.mp4">Video: Equidad en Comunidades Mayas</a></li>
-                    <li><a href="https://ejemplo.com" target="_blank">Enlaces a organizaciones mayas en Guatemala</a></li>
+                    <li class="resource-item">
+                        <p class="resource-text">Tecu, E. (2024). Crímenes contra población LGBTQIA+ en Guatemala: análisis interseccional del registro de denuncias del período 2019-2021. <em>Tramas y Redes</em>, (6), 295-312. https://doi.org/10.54871/c14c600q</p>
+                    </li>
+                    <li class="resource-item">
+                        <p class="resource-text">Mantilla, M. (2023). <em>Repercusiones Emocionales De Miembros De La Comunidad Lgbtq Ante La Discriminación En La Ciudad De Guatemala</em> [Tesis de licenciatura]. Universidad Rafael Landívar. https://biblior.url.edu.gt/wp-content/uploads/publiwevg/Tesis/2023/05/42/Mantilla-Maria.pdf</p>
+                    </li>
                 </ul>
-                <button class="cta-button">Descarga gratis</button>
+                
+                <h3 class="category-title">Salud y Bienestar de la Comunidad LGBTQ+</h3>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <p class="resource-text">López, P., & García, M. (2021). Perspectivas para mejorar la salud sexual de las minorías sexuales y de identidad de género en Guatemala. <em>Ehquidad</em>, 15, 45-62. https://doi.org/10.15257/ehquidad.2021.0012</p>
+                    </li>
+                    <li class="resource-item">
+                        <p class="resource-text">Hernández, R. (2020). <em>El proceso de revelación de orientación sexual homosexual en hombres indígenas en Guatemala</em> [Tesis de maestría]. Universidad del Valle de Guatemala. Repositorio UVG. https://repositorio.uvg.edu.gt/entities/publication/f7e9c4f3-d44b-44da-a282-bcd3bb3603f0</p>
+                    </li>
+                </ul>
+                
+                <h3 class="category-title">Aspectos Socioculturales e Interseccionalidad</h3>
+                <ul class="resource-list">
+                    <li class="resource-item">
+                        <p class="resource-text">Pérez, J. (2021). Influencia de la religión católica en la aceptación de la orientación sexual: historia de caso. <em>Revista UIP</em>, 6, 43-58. https://d1wqtxts1xzle7.cloudfront.net/107277258/REVISTA_UIP_06-libre.pdf</p>
+                    </li>
+                    <li class="resource-item">
+                        <p class="resource-text">Figari, C. (s.f.). <em>El movimiento LGBT en Argentina</em>. Justicia Jujuy. https://justiciajujuty.gov.ar/justiciajujuty/justiciajujuty/images/Prensa/PDFs/figari_el-movimiento-lgbt-en-argentina.pdf</p>
+                    </li>
+                </ul>
             </div>
-        </section>
+</section>
 
-        <!-- Sección Contacto: Formulario para consultas -->
-        <section id="contacto" class="contact-section">
-            <div class="container">
-                <h2>Contacto: ¡Conversemos sobre Justicia Maya!</h2>
-                <p>¿Tienes preguntas sobre las autoridades mayas en Guatemala? Envíanos un mensaje. ¡Estamos aquí para jóvenes, adultos y niños!</p>
-                <form id="contact-form">
-                    <input type="text" placeholder="Tu nombre" required>
-                    <input type="email" placeholder="Tu email" required>
-                    <textarea placeholder="Tu mensaje (ej. sobre justicia maya)" required></textarea>
-                    <button type="submit" class="cta-button">Enviar</button>
-                </form>
-            </div>
-        </section>
+    <section id="contacto" class="contact-section">
+    <div class="container">
+        <h2>Contacto: ¡Conversemos!</h2>
+        <p>¿Tienes preguntas? Envíanos un mensaje. ¡Estamos aquí para ayudarte!</p>
+        
+        <!-- Mensaje de confirmación (oculto inicialmente) -->
+        <div id="form-message" class="form-message" style="display: none;"></div>
+        
+<form id="contact-form">
+        <input type="text" name="user_name" placeholder="Tu nombre" required>
+        <input type="email" name="user_email" placeholder="Tu email" required>
+        <input type="text" name="subject" placeholder="Asunto" required>
+        <textarea name="message" placeholder="Tu mensaje" required></textarea>
+        <button type="submit" class="cta-button">Enviar Mensaje</button>
+</form>
+    </div>
+</section>
     </main>
     
     <footer>
