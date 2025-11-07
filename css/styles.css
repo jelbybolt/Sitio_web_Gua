@@ -483,7 +483,6 @@ footer {
         font-size: 2rem;
     }
 }
-/* Añade esto al final de tu archivo styles.css */
 
 /* Estilos para figuras de imágenes */
 .section-image-figure {
@@ -521,7 +520,6 @@ footer {
     text-decoration: underline;
 }
 
-/* Mejoras para el formulario de contacto */
 .cta-button {
     padding: 1rem 2rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
@@ -654,7 +652,7 @@ footer {
 .placeholder-image {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 60%;
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     display: flex;
     align-items: center;

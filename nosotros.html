@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colectivo LGBT+: Una mirada social - El Otro Lado del Mapa</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Conócenos</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../home.html">Inicio</a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+<br>
+<section id="personajes" class="figures-section">
+    <div class="container">
+        
+        <div class="figures-container">
+            <div class="figures-category">
+                <h3 class="category-title">Nuestro Equipo</h3>
+                <p class="intro-text">Conoce al equipo detrás de "El Otro Lado del Mapa", 
+                    comprometido con la investigación y difusión de temas sobre multiculturalidad, 
+                    género y equidad social.</p>
+                <div class="figure-grid">
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="placeholder-image"><img src="../img/" alt="" class="section-image"></div>
+                        </div>
+                        <div class="figure-info">
+                            <h4 class="figure-name">William Salvador Ramirez</h4>
+                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p>
+                        </div>
+                    </div>
+                    
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="placeholder-image"><img src="../img/" alt="" class="section-image"></div>
+                        </div>
+                        <div class="figure-info">
+                            <h4 class="figure-name">Hab'il Anayte' Xol Par</h4>
+                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p>
+                        </div>
+                    </div>
+                    
+                    <div class="figure-card">
+                        <div class="figure-image">
+                            <div class="placeholder-image"><img src="../img/" alt="" class="section-image"></div>
+                        </div>
+                        <div class="figure-info">
+                            <h4 class="figure-name">Yaxchel Saqkan Xol Par</h4>
+                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p></div>
+                    </div>
+                </div>
+            </div> 
+    </div>
+
+
+<section id="contacto" class="contact-section">
+        <div class="container">
+        <h2>Contacto: ¡Conversemos!</h2>
+        <p>¿Tienes preguntas? Envíanos un mensaje. ¡Estamos aquí para ayudarte!</p>
+        
+        <div id="form-message" class="form-message" style="display: none;"></div>
+        
+<form id="contact-form">
+        <input type="text" name="user_name" placeholder="Tu nombre" required>
+        <input type="email" name="user_email" placeholder="Tu email" required>
+        <input type="text" name="subject" placeholder="Asunto" required>
+        <textarea name="message" placeholder="Tu mensaje" required></textarea>
+        <button type="submit" class="cta-button">Enviar Mensaje</button>
+</form>
+    </div>
+</section>
+
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> El otro lado del mapa - Todos los derechos reservados</p>
+    </footer>
+    
+    
+    <script src="../js/main.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
