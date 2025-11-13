@@ -1,46 +1,5 @@
-// SISTEMA DE CONTACTO - COMPATIBLE CON LIVE SERVER
+// ===== SISTEMA DE CONTACTO - COMPATIBLE CON LIVE SERVER =====
 console.log('🚀 Sistema de contacto iniciado');
-
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('✅ Sitio cargado en Live Server');
-    
-    setupBasicSiteFunctions();
-    setupContactForms();
-});
-
-function setupBasicSiteFunctions() {
-    // Menú hamburguesa
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-
-    // Scroll suave
-    document.querySelectorAll('.nav-menu a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
-    });
-}
 
 function setupContactForms() {
     console.log('📝 Configurando formularios...');
@@ -62,10 +21,10 @@ function processForm(form) {
     
     // Obtener datos
     const formData = {
-        user_name: form.user_name.value,
-        user_email: form.user_email.value,
-        subject: form.subject.value,
-        message: form.message.value
+        user_name: form.user_name?.value || '',
+        user_email: form.user_email?.value || '',
+        subject: form.subject?.value || '',
+        message: form.message?.value || ''
     };
     
     console.log('📤 Procesando formulario:', formData);
@@ -73,6 +32,11 @@ function processForm(form) {
     // Validar
     if (!formData.user_email.includes('@')) {
         alert('❌ Ingresa un email válido');
+        return;
+    }
+    
+    if (!formData.user_name || !formData.message) {
+        alert('❌ Completa todos los campos obligatorios');
         return;
     }
     
@@ -145,11 +109,19 @@ function showMessage(message, type) {
     alert(message);
 }
 
-// Verificador de Live Server
-console.log('🌐 Verificando entorno...');
-if (window.location.protocol === 'file:') {
-    console.error('❌ ERROR: Estás en file:// - Usa Live Server!');
-    alert('⚠️  ABRE CON LIVE SERVER!\n\nHaz clic derecho en index.html y selecciona "Open with Live Server"');
-} else {
-    console.log('✅ Entorno correcto:', window.location.href);
-}
+// ===== INICIALIZACIÓN DEL SISTEMA DE CONTACTO =====
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✅ Sitio cargado en Live Server');
+    
+    // Inicializar sistema de contacto
+    setupContactForms();
+    
+    // Verificador de Live Server
+    console.log('🌐 Verificando entorno...');
+    if (window.location.protocol === 'file:') {
+        console.error('❌ ERROR: Estás en file:// - Usa Live Server!');
+        alert('⚠️  ABRE CON LIVE SERVER!\n\nHaz clic derecho en index.html y selecciona "Open with Live Server"');
+    } else {
+        console.log('✅ Entorno correcto:', window.location.href);
+    }
+});
