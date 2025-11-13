@@ -203,7 +203,7 @@
 
 /* Animación de brillo para cards activas en scroll horizontal */
 .cards-grid.horizontal .card.active {
-    box-shadow: 0 0 20px rgba(240, 147, 251, 0.6);
+    box-shadow: 0 0 20px rgba(163, 147, 251, 0.6);
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
