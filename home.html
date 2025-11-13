@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+    <!-- FONDO ANIMADO -->
+    <div class="background-animation">
+        <div class="paper-texture"></div>
+        <div class="paper-overlay"></div>
+    </div>
+    
     <header>
         <nav class="main-nav">
             <div class="logo">
@@ -25,59 +31,68 @@
         </nav>
     </header>
     
-    <main class="cards-container">
+    <main class="cards-container horizontal-scroll">
         <h2 class="section-title">Aquí puedes encontrar:</h2>
         
-        <div class="cards-grid">
-            <div class="card animated-card" onclick="openTopic('justucia-indigena')">
-                <div class="card-image">
-                    <img src="../img/autoridadesM.jpg" alt="Justicia Indígena">
+        <!-- CONTENEDOR DE SCROLL -->
+        <div class="cards-scroll-wrapper">
+            <div class="cards-grid horizontal">
+                <div class="card animated-card active" onclick="openTopic('justucia-indigena')">
+                    <div class="card-image">
+                        <img src="img/autoridadesM.jpg" alt="Justicia Indígena">
+                    </div>
+                    <div class="card-content">
+                        <h3>Justicia de Autoridades Indígenas</h3>
+                        <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural.</p>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3>Justicia de Autoridades Indígenas</h3>
-                    <p>Explora los sistemas de justicia propios de los pueblos indígenas y su significado cultural.</p>
+                
+                <div class="card animated-card" onclick="openTopic('feminismo-interseccional')">
+                    <div class="card-image">
+                        <img src="img/feminismoI.jpg" alt="Feminismo Interseccional">
+                    </div>
+                    <div class="card-content">
+                        <h3>Feminismo Interseccional</h3>
+                        <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica.</p>
+                    </div>
+                </div>
+                
+                <div class="card animated-card" onclick="openTopic('vulnerabilidad-lgbt')">
+                    <div class="card-image">
+                        <img src="img/comunidadLGjpg.jpg" alt="Colectivo LGBT">
+                    </div>
+                    <div class="card-content">
+                        <h3>Colectivo LGBT: Una mirada Social</h3>
+                        <p>Conoce de las situaciones sociales que enfrenta la comunidad LGBT actualmente.</p>
+                    </div>
+                </div>
+                
+                <div class="card animated-card" onclick="openTopic('sociedad-cultura')">
+                    <div class="card-image">
+                        <img src="img/sociedad-cultura.jpg" alt="Sociedad y Cultura">
+                    </div>
+                    <div class="card-content">
+                        <h3>Sociedad y Cultura</h3>
+                        <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos.</p>
+                    </div>
+                </div>
+                
+                <div class="card animated-card" onclick="openTopic('acuerdo-paz')">
+                    <div class="card-image">
+                        <img src="img/acuerdo-paz.jpg" alt="Acuerdos de Paz">
+                    </div>
+                    <div class="card-content">
+                        <h3>Acuerdos de Paz</h3>
+                        <p>Estudio de los procesos de paz y su implementación en diferentes contextos.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="card animated-card" onclick="openTopic('feminismo-interseccional')">
-                <div class="card-image">
-                    <img src="img/feminismoI.jpg" alt="Feminismo Interseccional">
-                </div>
-                <div class="card-content">
-                    <h3>Feminismo Interseccional</h3>
-                    <p>Análisis del feminismo que considera múltiples ejes de opresión en Latinoamérica.</p>
-                </div>
-            </div>
-            
-            <div class="card animated-card" onclick="openTopic('vulnerabilidad-lgbt')">
-                <div class="card-image">
-                    <img src="img/comunidadLGjpg.jpg" alt="Colectivo LGBT">
-                </div>
-                <div class="card-content">
-                    <h3>Colectivo LGBT: Una mirada Social</h3>
-                    <p>Conoce de las situaciones sociales que enfrenta la comunidad LGBT actualmente.</p>
-                </div>
-            </div>
-            
-            <div class="card animated-card" onclick="openTopic('sociedad-cultura')">
-                <div class="card-image">
-                    <img src="img/sociedad-cultura.jpg" alt="Sociedad y Cultura">
-                </div>
-                <div class="card-content">
-                    <h3>Sociedad y Cultura</h3>
-                    <p>Reflexiones sobre las dinámicas sociales y culturales en contextos diversos.</p>
-                </div>
-            </div>
-            
-            <div class="card animated-card" onclick="openTopic('acuerdo-paz')">
-                <div class="card-image">
-                    <img src="img/acuerdo-paz.jpg" alt="Acuerdos de Paz">
-                </div>
-                <div class="card-content">
-                    <h3>Acuerdos de Paz</h3>
-                    <p>Estudio de los procesos de paz y su implementación en diferentes contextos.</p>
-                </div>
-            </div>
+        </div>
+        
+        <!-- NAVEGACIÓN PARA SCROLL HORIZONTAL -->
+        <div class="scroll-nav">
+            <button class="scroll-btn" onclick="scrollCards(-1)">←</button>
+            <button class="scroll-btn" onclick="scrollCards(1)">→</button>
         </div>
     </main>
     
@@ -90,6 +105,16 @@
         function openTopic(topic) {
             window.location.href = `pages/${topic}.html`;
         }
+        
+        // FUNCIÓN PARA SCROLL HORIZONTAL
+        function scrollCards(direction) {
+            scrollToAdjacentCard(direction);
+        }
+        
+        // Inicializar cards activas
+        document.addEventListener('DOMContentLoaded', function() {
+            initCardScroll();
+        });
     </script>
 </body>
 </html>
