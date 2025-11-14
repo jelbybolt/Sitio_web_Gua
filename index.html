@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- FONDO ANIMADO -->
+    <!-- FONDO ANIMADO CON DESTELLOS -->
     <div class="background-animation">
         <div class="paper-texture"></div>
         <div class="paper-overlay"></div>
+        <!-- Las partículas se generarán automáticamente con JavaScript -->
     </div>
+    
+    <!-- ELEMENTOS PARA EFECTOS DE DESTELLOS DEL MOUSE -->
+    <div id="cursor-trail"></div>
+    <div id="mouse-spotlight"></div>
     
     <header>
         <nav class="main-nav">
@@ -34,7 +39,8 @@
     <main>
         <section class="hero-section">
             <div class="hero-content">
-                <p>Explora temas sobre multiculturalidad, género y equidad.</p>
+                <h2></h2>
+                <p></p>
                 <button onclick="window.location.href='home.html'" class="cta-button">Ingresar al Sitio</button>
             </div>
             <div class="hero-background">
@@ -47,6 +53,8 @@
         <p>&copy; 2025 El otro lado del mapa - Todos los derechos reservados</p>
     </footer>
     
+    <script src="js/mouse-effects.js"></script>
+    <script src="js/particles.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
