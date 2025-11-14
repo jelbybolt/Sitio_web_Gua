@@ -11,12 +11,12 @@
 :root {
     --primary-color: #EEEEEE;
     --secondary-color: #474647;
-    --accent-color: #f093fb;
+    --accent-color: #dd6e24;
     --dark-color: #2c3e50bd;
     --light-color: #f8f9fa;
     --text-color: #333;
     --text-light: #7f8c8d;
-    --nav-color: #3A6B35;
+    --nav-color: #523e10;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
 }
@@ -46,7 +46,8 @@ body {
 
 .logo h1 {
     font-size: 1.5rem;
-    background: #F8C8DC;
+    background: #ffffff;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -105,9 +106,9 @@ body {
     position: relative;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: left;
     color: white;
     overflow: hidden;
 }
@@ -116,6 +117,8 @@ body {
     z-index: 2;
     max-width: 800px;
     padding: 0 2rem;
+    margin-bottom: 15%;
+    margin-left: 20%;
 }
 
 .hero-content h2 {
@@ -160,7 +163,7 @@ body {
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2.5rem;
-    color: white;
+    color: rgb(255, 255, 255);
     position: relative;
 }
 
@@ -183,7 +186,7 @@ body {
 
 /* Cards */
 .card {
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -434,7 +437,7 @@ footer {
     text-align: center;
     padding: 2rem;
     background-color: var(--nav-color);
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 2rem;
 }
 
@@ -555,7 +558,7 @@ footer {
 
 .form-message.success {
     background-color: #d4edda;
-    color: #155724;
+    color: #573d15;
     border: 1px solid #c3e6cb;
 }
 
@@ -709,50 +712,84 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -2; /* Cambiado a -2 para que esté detrás de todo */
     background: url('../img/fondo2.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    animation: backgroundPulse 8s ease-in-out infinite;
 }
 
-.paper-texture {
-    position: absolute;
+/* Capa de partículas animadas - DEBE ESTAR SOBRE EL FONDO */
+.particle-layer {
+    position: fixed; /* Cambiado de absolute a fixed */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
-        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 1px, transparent 1px);
-    background-size: 50px 50px, 30px 30px, 40px 40px;
-    opacity: 0.4;
-    animation: paper-move 20s infinite linear;
+    pointer-events: none;
+    z-index: -1; /* Ahora está entre el fondo (-2) y el contenido (0+) */
 }
 
-.paper-overlay {
+/* Resto del código de partículas se mantiene igual */
+.particle {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(rgba(132, 153, 79, 0.2), rgba(118, 75, 162, 0.2)),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
-    opacity: 0.3;
+    width: 4px;
+    height: 4px;
+    background: rgb(251, 255, 141);
+    border-radius: 50%;
+    animation: particleFloat 6s infinite linear;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
 }
 
-@keyframes paper-move {
-    0% {
-        background-position: 0 0, 0 0, 0 0;
-    }
-    100% {
-        background-position: 50px 50px, 30px 30px, 40px 40px;
-    }
+.particle.large {
+    width: 6px;
+    height: 6px;
+    background: rgba(221, 110, 36, 0.6);
+    box-shadow: 0 0 15px 3px rgba(221, 110, 36, 0.4);
+}
+
+.particle.accent {
+    width: 3px;
+    height: 3px;
+    background: rgba(82, 62, 16, 0.7);
+    box-shadow: 0 0 8px 2px rgba(82, 62, 16, 0.3);
+}
+
+/* Asegurar que el contenido principal esté sobre las partículas */
+.hero-section,
+.cards-container,
+.main-nav,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Efectos de luz móvil también deben estar sobre el fondo */
+.moving-light {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(221, 110, 36, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: moveLight 15s infinite linear;
+    z-index: -1;
+}
+
+.flash {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: flashAppear 4s infinite;
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* ===== SCROLL HORIZONTAL PARA HOME ===== */
 .cards-container.horizontal-scroll {
     padding: 8rem 5% 3rem;
     overflow: visible;
+    position: relative;
 }
 
 .cards-scroll-wrapper {
@@ -765,20 +802,12 @@ footer {
     margin: 0 -5%;
     padding-left: 5%;
     padding-right: 5%;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
 }
 
 .cards-scroll-wrapper::-webkit-scrollbar {
-    height: 8px;
-}
-
-.cards-scroll-wrapper::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.cards-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 10px;
+    display: none; /* Chrome, Safari and Opera */
 }
 
 .cards-grid.horizontal {
@@ -793,21 +822,22 @@ footer {
     flex: 0 0 auto;
     width: 350px;
     white-space: normal;
-    transition: all 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
 }
 
 /* Efectos para cards activas e inactivas */
 .cards-grid.horizontal .card.active {
-    transform: scale(1);
+    transform: scale(1.05);
     opacity: 1;
-    z-index: 10;
+    z-index: 20;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
 .cards-grid.horizontal .card:not(.active) {
-    transform: scale(0.85);
-    opacity: 0.6;
-    z-index: 1;
+    transform: scale(0.9);
+    opacity: 0.7;
+    z-index: 10;
 }
 
 /* Efectos mejorados para cards en scroll horizontal */
@@ -819,30 +849,40 @@ footer {
 
 /* Navegación para scroll horizontal */
 .scroll-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
+    pointer-events: none;
+    z-index: 100;
 }
 
 .scroll-btn {
+    pointer-events: auto;
     background: var(--accent-color);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     font-size: 1.5rem;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-btn:hover {
-    background: var(--primary-color);
+    background: var(--nav-color);
     transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive para scroll horizontal */
@@ -852,8 +892,8 @@ footer {
     }
     
     .scroll-btn {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         font-size: 1.2rem;
     }
     
@@ -861,5 +901,337 @@ footer {
         margin: 0 -2%;
         padding-left: 2%;
         padding-right: 2%;
+    }
+}
+
+/* ===== EFECTOS DE DESTELLOS Y ANIMACIONES AL MOVER EL MOUSE ===== */
+
+/* Efecto de rastro del cursor */
+#cursor-trail {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Efecto de spotlight que sigue al mouse */
+#mouse-spotlight {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(221, 110, 36, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+/* Destello en elementos interactivos */
+.card, .nav-menu a, .cta-button, .scroll-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before, .nav-menu a::before, .cta-button::before, .scroll-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.91),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.card:hover::before, .nav-menu a:hover::before, 
+.cta-button:hover::before, .scroll-btn:hover::before {
+    left: 100%;
+}
+
+/* Efecto de partículas en hover para cards */
+.card:hover {
+    animation: cardGlow 1.5s ease-in-out;
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 15px 40px rgba(221, 110, 36, 0.3);
+    }
+}
+
+/* Efecto de respiración para elementos importantes */
+.section-title {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Destello en el logo */
+.logo h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.logo h1::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover h1::after {
+    opacity: 1;
+}
+
+/* Efecto de ondas en botones */
+.cta-button, .scroll-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::after, .scroll-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.cta-button:hover::after, .scroll-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Efecto de brillo en elementos de navegación */
+.nav-menu a {
+    position: relative;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+}
+
+/* ===== EFECTOS DE DESTELLOS EN MOVIMIENTO PARA EL FONDO ===== */
+
+/* Capa de partículas animadas */
+.particle-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Partículas de destello */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: particleFloat 6s infinite linear;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.916);
+}
+
+/* Partículas grandes */
+.particle.large {
+    width: 6px;
+    height: 6px;
+    background: rgba(221, 110, 36, 0.6);
+    box-shadow: 0 0 15px 3px rgba(221, 110, 36, 0.4);
+}
+
+/* Partículas de acento */
+.particle.accent {
+    width: 3px;
+    height: 3px;
+    background: rgba(150, 143, 126, 0.7);
+    box-shadow: 0 0 8px 2px rgba(255, 253, 249, 0.873);
+}
+
+/* Animaciones para partículas */
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particleMove {
+    0% {
+        transform: translateX(-100px) translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px) translateY(-100px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particleSpin {
+    0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(70vh) rotate(90deg) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(30vh) rotate(270deg) scale(1);
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Destellos aleatorios */
+.flash {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 75%);
+    border-radius: 50%;
+    animation: flashAppear 4s infinite;
+    pointer-events: none;
+}
+
+@keyframes flashAppear {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+/* Efecto de brillo pulsante para el fondo */
+@keyframes backgroundPulse {
+    0%, 100% {
+        filter: brightness(1) contrast(1);
+    }
+    50% {
+        filter: brightness(1.05) contrast(1.1);
+    }
+}
+
+.background-animation {
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+/* Efecto de luz móvil */
+.moving-light {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(221, 110, 36, 0.684) 0%, transparent 50%);
+    border-radius: 50%;
+    animation: moveLight 15s infinite linear;
+}
+
+@keyframes moveLight {
+    0% {
+        transform: translate(10%, 20%);
+    }
+    25% {
+        transform: translate(80%, 40%);
+    }
+    50% {
+        transform: translate(60%, 80%);
+    }
+    75% {
+        transform: translate(20%, 60%);
+    }
+    100% {
+        transform: translate(10%, 20%);
+    }
+}
+
+.moving-light:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(82, 62, 16, 0.08) 0%, transparent 70%);
+    animation: moveLightReverse 12s infinite linear;
+}
+
+@keyframes moveLightReverse {
+    0% {
+        transform: translate(80%, 60%);
+    }
+    25% {
+        transform: translate(20%, 80%);
+    }
+    50% {
+        transform: translate(40%, 20%);
+    }
+    75% {
+        transform: translate(70%, 40%);
+    }
+    100% {
+        transform: translate(80%, 60%);
     }
 }

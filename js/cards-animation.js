@@ -93,7 +93,7 @@ function setActiveCard(activeCard) {
     
     // Añadir clase active a la card seleccionada
     activeCard.classList.add('active');
-    activeCard.style.transform = 'scale(1)';
+    activeCard.style.transform = 'scale(1.05)';
     activeCard.style.opacity = '1';
 }
 

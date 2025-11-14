@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- FONDO ANIMADO -->
+    <!-- FONDO ANIMADO CON DESTELLOS -->
     <div class="background-animation">
         <div class="paper-texture"></div>
         <div class="paper-overlay"></div>
+        <!-- Las partículas se generarán automáticamente con JavaScript -->
     </div>
+    
+    <!-- ELEMENTOS PARA EFECTOS DE DESTELLOS DEL MOUSE -->
+    <div id="cursor-trail"></div>
+    <div id="mouse-spotlight"></div>
     
     <header>
         <nav class="main-nav">
@@ -89,7 +94,7 @@
             </div>
         </div>
         
-        <!-- NAVEGACIÓN PARA SCROLL HORIZONTAL -->
+        <!-- NAVEGACIÓN PARA SCROLL HORIZONTAL - POSICIÓN MEJORADA -->
         <div class="scroll-nav">
             <button class="scroll-btn" onclick="scrollCards(-1)">←</button>
             <button class="scroll-btn" onclick="scrollCards(1)">→</button>
@@ -101,6 +106,8 @@
     </footer>
     
     <script src="js/cards-animation.js"></script>
+    <script src="js/mouse-effects.js"></script>
+    <script src="js/particles.js"></script>
     <script>
         function openTopic(topic) {
             window.location.href = `pages/${topic}.html`;
