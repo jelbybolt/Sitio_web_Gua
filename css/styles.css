@@ -27,6 +27,12 @@ body {
     color: var(--text-color);
     background: var(--primary-color);
     min-height: 100vh;
+    justify-content: justify;
+}
+
+.p {
+    justify-self: justify;
+    text-align: justify;
 }
 
 /* Navegación */
