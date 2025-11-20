@@ -762,6 +762,80 @@ footer {
     text-decoration: underline;
 }
 
+.glossary-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.glossary-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.glossary-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.glossary-item {
+    background: #b6b591;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: fit-content;
+}
+
+.glossary-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.term {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.definition {
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.9rem;
+    text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .glossary-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .glossary-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .glossary-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .glossary-section {
+        padding: 10px;
+    }
+}
+
 /* ===== ANIMACIONES DE FONDO PAPEL ARRUGADO ===== */
 .background-animation {
     position: fixed;
