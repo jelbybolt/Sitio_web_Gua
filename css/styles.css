@@ -1292,3 +1292,207 @@ footer {
         transform: translate(80%, 60%);
     }
 }
+/* Estilos específicos para la página Nosotros */
+.team-hero {
+    background: linear-gradient(135deg, var(--nav-color) 0%, var(--accent-color) 100%);
+    padding: 8rem 5% 4rem;
+    text-align: center;
+    color: white;
+}
+
+.team-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+}
+
+.team-hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+/* Mejoras para las tarjetas de equipo */
+.figure-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.figure-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--nav-color));
+}
+
+.figure-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.figure-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.figure-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.figure-card:hover .figure-image img {
+    transform: scale(1.05);
+}
+
+.figure-info {
+    padding: 1.5rem;
+}
+
+.figure-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.figure-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+.figure-role {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.figure-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Estilos para la sección de recursos */
+.resources-hero {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--nav-color) 100%);
+    padding: 8rem 5% 4rem;
+    text-align: center;
+    color: white;
+}
+
+.resource-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 5px solid var(--accent-color);
+}
+
+.resource-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.resource-card h3 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.resource-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.resource-card a:hover {
+    color: var(--nav-color);
+    transform: translateX(5px);
+}
+
+.resource-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Mejoras para el contenido del blog */
+.blog-content h2 {
+    text-align: left;
+    margin: 2rem 0 1rem;
+    color: var(--dark-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.blog-content h2::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background: var(--accent-color);
+    bottom: 0;
+    left: 0;
+}
+
+.blog-content ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.blog-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.blog-content li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-hero h1,
+    .resources-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .team-hero p,
+    .resources-hero p {
+        font-size: 1rem;
+    }
+    
+    .figure-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resource-card {
+        padding: 1.5rem;
+    }
+}

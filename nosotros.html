@@ -3,13 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colectivo LGBT+: Una mirada social - El Otro Lado del Mapa</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/animations.css">
+    <title>Nuestro Equipo - El Otro Lado del Mapa</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+        @import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Coiny&family=Rubik+Beastly&display=swap');
+
+        :root {
+            --primary-color: #EEEEEE;
+            --secondary-color: #474647;
+            --accent-color: #dd6e24;
+            --dark-color: #2c3e50bd;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --nav-color: #523e10;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--primary-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Fondo animado */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #f5f1e6 0%, #e8dfca 50%, #d4c5a7 100%);
+            overflow: hidden;
+            animation: backgroundPulse 8s ease-in-out infinite;
+        }
+
+        .particle-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(221, 110, 36, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 6s infinite linear;
+            box-shadow: 0 0 10px 2px rgba(221, 110, 36, 0.4);
+        }
+
+        .particle.large {
+            width: 6px;
+            height: 6px;
+            background: rgba(82, 62, 16, 0.4);
+            box-shadow: 0 0 15px 3px rgba(82, 62, 16, 0.3);
+        }
+
+        .particle.accent {
+            width: 3px;
+            height: 3px;
+            background: rgba(150, 120, 80, 0.7);
+            box-shadow: 0 0 8px 2px rgba(150, 120, 80, 0.3);
+        }
+
+        .moving-light {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(221, 110, 36, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: moveLight 15s infinite linear;
+            z-index: -1;
+        }
+
+        .flash {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: flashAppear 4s infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { filter: brightness(1) contrast(1); }
+            50% { filter: brightness(1.05) contrast(1.1); }
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes moveLight {
+            0% { transform: translate(10%, 20%); }
+            25% { transform: translate(80%, 40%); }
+            50% { transform: translate(60%, 80%); }
+            75% { transform: translate(20%, 60%); }
+            100% { transform: translate(10%, 20%); }
+        }
+
+        @keyframes flashAppear {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 0.3; transform: scale(1); }
+        }
+
+        /* Navegación */
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--nav-color);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ffffff, #dd6e24);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Sección Hero */
+        .blog-hero {
+            position: relative;
+            margin-top: 80px;
+            height: 40vh;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-hero-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .blog-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(82, 62, 16, 0.8) 0%, rgba(221, 110, 36, 0.7) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .blog-hero-content h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sección de Personajes */
+        .figures-section {
+            padding: 60px 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--nav-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .figures-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--nav-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .figure-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            text-align: center;
+        }
+
+        .figure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--nav-color));
+        }
+
+        .figure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .figure-image {
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto 15px;
+            width: 140px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .figure-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .figure-card:hover .figure-image img {
+            transform: scale(1.05);
+        }
+
+        .figure-info {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .figure-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .figure-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .figure-role {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .figure-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Contenido del blog */
+        .blog-content {
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .blog-content .container {
+            max-width: 800px;
+        }
+
+        .blog-content h2 {
+            margin: 2rem 0 1rem;
+            color: var(--nav-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .blog-content h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .blog-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .blog-content li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Sección de Contacto */
+        .contact-section {
+            padding: 3rem 5%;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-section input:focus,
+        .contact-section textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(221, 110, 36, 0.2);
+        }
+
+        .contact-section textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--nav-color) 0%, var(--accent-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--nav-color);
+            color: rgb(255, 255, 255);
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Placeholder para imágenes */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8B7355 0%, #A52A2A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--dark-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .blog-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .figure-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .figure-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .figure-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .figure-name {
+                font-size: 1.1rem;
+            }
+            
+            .figure-role {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Fondo animado -->
+    <div class="background-animation"></div>
+    <div class="particle-layer" id="particle-layer"></div>
+    
     <header>
         <nav class="main-nav">
             <div class="logo">
@@ -17,7 +610,6 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="../home.html">Inicio</a></li>
-
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -26,86 +618,156 @@
             </div>
         </nav>
     </header>
-<br>
 
-<section id="personajes" class="figures-section">
-    <div class="container">
-        
-        <div class="figures-container">
-            <div class="figures-category">
-                <h3 class="category-title">Nuestro Equipo</h3>
-                <p class="intro-text">Conoce al equipo detrás de "El Otro Lado del Mapa"</p>
-                <div class="figure-grid">
-                    <div class="figure-card">
-                        <div class="figure-image">
-                            <div class="placeholder-image"><img src="../img/willphoto.jpg" alt="" class="section-image"></div>
+    <!-- Sección Hero -->
+    <section class="blog-hero">
+        <div class="blog-hero-image">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--nav-color) 0%, var(--accent-color) 100%);"></div>
+        </div>
+        <div class="blog-hero-content">
+            <h1>Nuestro Equipo</h1>
+        </div>
+    </section>
+
+    <!-- Sección de Personajes -->
+    <section id="personajes" class="figures-section">
+        <div class="container">
+            <h2 class="section-title">Conoce al equipo</h2>
+            <p class="intro-text">Somos un equipo comprometido con la visibilización de temas multiculturales, de género y equidad social. A través de "El Otro Lado del Mapa" buscamos crear espacios inclusivos donde todas las voces sean escuchadas.</p>
+            
+            <div class="figures-container">
+                <div class="figures-category">
+                    <h3 class="category-title">Nuestro Equipo</h3>
+                    <div class="figure-grid">
+                        <div class="figure-card">
+                            <div class="figure-image">
+                                <img src="../img/willphoto.jpg" alt="William Salvador Ramirez" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="image-placeholder" style="display:none;">William</div>
+                            </div>
+                            <div class="figure-info">
+                                <h4 class="figure-name">William Salvador Ramirez</h4>
+                                <p class="figure-role">Estudiante del Técnico Universitario en Informática</p>
+                                <p class="figure-description"><cite>"La verdadera resistencia es una resistencia pacífica y transformadora."</cite> <em> - Angela Davis</em></p>
+                            </div>
                         </div>
-                        <div class="figure-info">
-                            <h4 class="figure-name">William Salvador Ramirez</h4>
-                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p>
-                            <p class="figure-description"><cite>La verdadera resistencia es una resistencia pacífica y transformadora. - </cite> <em> Angela Davis</em></p>
+                        
+                        <div class="figure-card">
+                            <div class="figure-image">
+                                <img src="../img/habphoto.jpeg" alt="Hab'il Anayte' Xol Par" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="image-placeholder" style="display:none;">Hab'il</div>
+                            </div>
+                            <div class="figure-info">
+                                <h4 class="figure-name">Hab'il Anayte' Xol Par</h4>
+                                <p class="figure-role">Estudiante del Técnico Universitario en Informática</p>
+                                <p class="figure-description"><cite>"La ignorancia, aliada con el poder, es el enemigo más feroz que la justicia puede tener."</cite> <em> - James Baldwin</em></p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="figure-card">
-                        <div class="figure-image">
-                            <div class="placeholder-image"><img src="../img/habphoto.jpeg" alt="" class="section-image"></div>
+                        
+                        <div class="figure-card">
+                            <div class="figure-image">
+                                <img src="../img/saqphoto.jpg" alt="Yaxchel Saqkan Xol Par" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="image-placeholder" style="display:none;">Yaxchel</div>
+                            </div>
+                            <div class="figure-info">
+                                <h4 class="figure-name">Yaxchel Saqkan Xol Par</h4>
+                                <p class="figure-role">Estudiante del Técnico Universitario en Informática</p>
+                                <p class="figure-description"><cite>"La educación es un arma poderosa para la liberación y la transformación social."</cite> <em> - Angela Davis</em></p>
+                            </div>
                         </div>
-                        <div class="figure-info">
-                            <h4 class="figure-name">Hab'il Anayte' Xol Par</h4>
-                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p>
-                            <p class="figure-description"><cite>La ignorancia, aliada con el poder, es el enemigo más feroz que la justicia puede tener. - </cite> <em>James Baldwin</em> </p>
-                        </div>
-                    </div>
-                    
-                    <div class="figure-card">
-                        <div class="figure-image">
-                            <div class="placeholder-image"><img src="../img/saqphoto.jpg" alt="" class="section-image"></div>
-                        </div>
-                        <div class="figure-info">
-                            <h4 class="figure-name">Yaxchel Saqkan Xol Par</h4>
-                            <p class="figure-role">Estudiante del Técnico Universtario en Informática</p>
-                            <p class="figure-description"><cite>La educación es un arma poderosa para la liberación y la transformación social. - </cite> <em>Angela Davis</em> </p>
-                    </div>
                     </div>
                 </div>
-            </div> 
-                    <p>El Otro Lado del Mapa es un proyecto dedicado a explorar y difundir temas relacionados con la multiculturalidad, 
-            el género y la equidad social. Nuestro objetivo es crear un espacio inclusivo donde se puedan compartir 
-            experiencias, conocimientos y perspectivas diversas.</p> <br>
-        <p>Creemos en la importancia de visibilizar las voces marginadas y promover el entendimiento intercultural. 
-            A través de artículos, entrevistas y recursos educativos, buscamos fomentar el diálogo y la reflexión 
-            sobre estos temas cruciales en nuestra sociedad.</p>
-    </div>
-</section>
+            </div>
+            
+            <div class="blog-content">
+                <div class="container">
+                    <h2>Nuestra Misión</h2>
+                    <p>El Otro Lado del Mapa es un proyecto dedicado a explorar y difundir temas relacionados con la multiculturalidad, el género y la equidad social. Nuestro objetivo es crear un espacio inclusivo donde se puedan compartir experiencias, conocimientos y perspectivas diversas.</p>
+                    
+                    <h2>Nuestra Visión</h2>
+                    <p>Creemos en la importancia de visibilizar las voces marginadas y promover el entendimiento intercultural. A través de artículos, entrevistas y recursos educativos, buscamos fomentar el diálogo y la reflexión sobre estos temas cruciales en nuestra sociedad.</p>
+                    
+                    <h2>Nuestros Valores</h2>
+                    <ul>
+                        <li><strong>Inclusión:</strong> Creemos en la importancia de todas las voces y perspectivas.</li>
+                        <li><strong>Respeto:</strong> Valoramos la diversidad y promovemos el diálogo respetuoso.</li>
+                        <li><strong>Compromiso:</strong> Trabajamos por una sociedad más justa e igualitaria.</li>
+                        <li><strong>Educación:</strong> Utilizamos el conocimiento como herramienta de transformación.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contacto" class="contact-section">
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact-section">
         <div class="container">
-        <h2>Contacto: ¡Conversemos!</h2>
-        <p>¿Tienes preguntas? Envíanos un mensaje. ¡Estamos aquí para ayudarte!</p>
-        
-        <div id="form-message" class="form-message" style="display: none;"></div>
-        
-<form id="contact-form">
-        <input type="text" name="user_name" placeholder="Tu nombre" required>
-        <input type="email" name="user_email" placeholder="Tu email" required>
-        <input type="text" name="subject" placeholder="Asunto" required>
-        <textarea name="message" placeholder="Tu mensaje" required></textarea>
-        <button type="submit" class="cta-button">Enviar Mensaje</button>
-</form>
-    </div>
-</section>
+            <h2 class="section-title">Contacto: ¡Conversemos!</h2>
+            <p>¿Tienes preguntas? Envíanos un mensaje. ¡Estamos aquí para ayudarte!</p>
+            
+            <div id="form-message" class="form-message" style="display: none;"></div>
+            
+            <form id="contact-form">
+                <input type="text" name="user_name" placeholder="Tu nombre" required>
+                <input type="email" name="user_email" placeholder="Tu email" required>
+                <input type="text" name="subject" placeholder="Asunto" required>
+                <textarea name="message" placeholder="Tu mensaje" required></textarea>
+                <button type="submit" class="cta-button">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
 
-    </main>
-    
     <footer>
         <p>&copy; <span id="year"></span> El otro lado del mapa - Todos los derechos reservados</p>
     </footer>
     
-    
-    <script src="../js/main.js"></script>
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Crear partículas para el fondo
+        const particleLayer = document.getElementById('particle-layer');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            if (i % 3 === 0) particle.classList.add('large');
+            if (i % 5 === 0) particle.classList.add('accent');
+            
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (5 + Math.random() * 10) + 's';
+            
+            particleLayer.appendChild(particle);
+        }
+        
+        // Menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Manejo de errores de imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.figure-image img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const placeholder = this.nextElementSibling;
+                    if (placeholder && placeholder.classList.contains('image-placeholder')) {
+                        placeholder.style.display = 'flex';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

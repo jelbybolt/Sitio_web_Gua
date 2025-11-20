@@ -10,6 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Fondo animado -->
+    <div class="background-animation"></div>
+    <div class="particle-layer" id="particle-layer"></div>
+    
     <header>
         <nav class="main-nav">
             <div class="logo">
@@ -17,7 +21,6 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="../home.html">Inicio</a></li>
-
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -67,15 +70,13 @@
                     </div>
                     </div>
 
-                    <div class="figure-card">
-                        <div class="figure-info">
-                            <h4 class="figure-name">FGER</h4>
-                            <p class="figure-role"><a href="https://www.fger.org/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial</a></p>
-                            <p class="figure-description">Una cadena radial Cultural y educativa, con gran experiencia y capacidad en gestión  de proyectos 
-                                de comunicación para el desarrollo, con presencia y cobertura nacional, aportando al buen vivir de la sociedad a través de 
-                                una programación multilingüe y de calidad.</p>
-                    </div>
-                    </div>
+                        <div class="figure-card">
+                            <div class="figure-info">
+                                <h4 class="figure-name">FGER</h4>
+                                <p class="figure-role"><a href="https://www.fger.org/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial</a></p>
+                                <p class="figure-description">Una cadena radial Cultural y educativa, con gran experiencia y capacidad en gestión de proyectos de comunicación para el desarrollo, con presencia y cobertura nacional, aportando al buen vivir de la sociedad a través de una programación multilingüe y de calidad.</p>
+                            </div>
+                        </div>
 
                     <div class="figure-card">
                         <div class="figure-info">
@@ -86,14 +87,13 @@
                     </div>
                     </div>
 
-                    <div class="figure-card">
-                        <div class="figure-info">
-                            <h4 class="figure-name">Noticias Maya Kat</h4>
-                            <p class="figure-role"><a href="https://www.fger.org/noticias-maya-kat/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial</a></p>
-                            <p class="figure-description">Espacio informativo intercultural, con una agenda periodística construida a partir de los valores instituciones de la 
-                                Federación Guatemalteca de Escuelas Radiofónicas FGER, principios éticos y políticos que promueven la cultura del Buen Vivir, el fortalecimiento 
-                                de la identidad cultural de los pueblos originarios, la participación ciudadana y el fortalecimiento de la democracia en espacios locales y nacionales.</p>
-                    </div>
+                        <div class="figure-card">
+                            <div class="figure-info">
+                                <h4 class="figure-name">Noticias Maya Kat</h4>
+                                <p class="figure-role"><a href="https://www.fger.org/noticias-maya-kat/" target="_blank" rel="noopener noreferrer">Visitar sitio oficial</a></p>
+                                <p class="figure-description">Espacio informativo intercultural, con una agenda periodística construida a partir de los valores instituciones de la Federación Guatemalteca de Escuelas Radiofónicas FGER, principios éticos y políticos que promueven la cultura del Buen Vivir, el fortalecimiento de la identidad cultural de los pueblos originarios, la participación ciudadana y el fortalecimiento de la democracia en espacios locales y nacionales.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div> 
@@ -109,7 +109,31 @@
     
     <script src="../js/main.js"></script>
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Crear partículas para el fondo
+        const particleLayer = document.getElementById('particle-layer');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            if (i % 3 === 0) particle.classList.add('large');
+            if (i % 5 === 0) particle.classList.add('accent');
+            
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (5 + Math.random() * 10) + 's';
+            
+            particleLayer.appendChild(particle);
+        }
+        
+        // Menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
