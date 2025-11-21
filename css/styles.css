@@ -35,6 +35,10 @@ body {
     text-align: justify;
 }
 
+.pc {
+    justify-self: center;
+    text-align: center;
+}
 /* Navegación */
 .main-nav {
     display: flex;
